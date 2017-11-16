@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./main.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/favicon.ico" />
+    <title>Tweetzel</title>
+</head>
+
+<body>
+    <div class="bg"><img src="img/background.jpg">
+    </div>
+
+    <!--Bandeau-->
+    <header>
+        <div id="titre">
+            <img src="img/logo.gif">
+            <h1> Tweetzel</h1>
+            <i> Le savant m&eacutelange entre Twitter et un Bretzel </i>
+        </div>
+        <!--Documentation Mashape -->
+        <a id="doc" href="https://www.mashape.com/fran_bout/tweetzel?&amp;utm_campaign=mashape5-embed&amp;utm_medium=button&amp;utm_source=tweetzel&amp;utm_content=anchorlink&amp;utm_term=icon-light"><img alt="Mashape" src="https://d1g84eaw0qjo7s.cloudfront.net/images/badges/badge-icon-light-9e8eba63.png" height="38" width="143">
+        </a>
+    </header>
+
+    <!--Connexion-->
+    <div id="forms">
+        <div id="connexion2">
+            <form id="loginForm" action="javascript:void(0);" onSubmit="return verifLogin();">
+                <fieldset>
+                    <input type="text" name="login" placeholder="login" />
+                    <input type="password" name="pwd" placeholder="mot de passe" type="password" />
+                    <input id="loginFormSubmit" type="submit" value="C'est parti !" />
+                    <button id="inscription" div onClick="showHide();" type="button">Je veux m'inscrire </button>
+                </fieldset>
+            </form>
+            <div id='inscriptionStatus'>
+
+            </div>
+        </div>
+
+        <!--Inscription-->
+        <div id="inscriptForm" style="visibility:hidden">
+            <form id="inscriptForm2" action="javascript:void(0);" onSubmit="return verifIns();">
+                <fieldset>
+                    <input type="text" name="login" placeholder="choisis ton nom d'artiste" />
+                    <input type="text" name="pwd" placeholder="choisis ton mot de passe" />
+                    <input type="text" name='firstname' placeholder="ton prénom" />
+                    <input type="text" name='lastname' placeholder="ton nom" />
+                    <input type="text" name='desc' placeholder="a propos de toi" />
+                    </br>
+
+                    <div class='tof'>
+                        <input type="radio" id="photo0" name="photo" value="0" /><img src="img/usr0.jpg" />
+                    </div>
+                    <div class='tof'>
+                        <input type="radio" id="photo1" name="photo" value="1" /><img src="img/usr1.jpg" />
+                    </div>
+                    <div class='tof'>
+                        <input type="radio" id="photo2" name="photo" value="2" /><img src="img/usr2.jpg" />
+                    </div>
+                    <div class='tof'>
+                        <input type="radio" id="photo3" name="photo" value="3" /><img src="img/usr3.jpg" />
+                    </div>
+                    <input type="submit" value="Allons manger des bretzel !" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <!--Défilement d'un poney : normal-->
+    <div id="nyan" title="Have a break, have a bretzel">
+        <div class="tweet ponyTweet">
+            <div class="authorInfo">
+                <img src="img/logo.gif">
+                <p class="name">Informations</p>
+            </div>
+            <p class="content">
+                04 mai 2015 </br>
+                Ce site est vraiment super :D
+            </p>
+        </div>
+        <img src="img/nyan.gif" />
+    </div>
+
+    <!--Javascript & JQuery-->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="main.js"></script>
+    <script language="javascript" type="text/javascript">
+        main_index();
+    </script>
+</body>
+
+</html>

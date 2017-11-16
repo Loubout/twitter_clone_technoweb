@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/db" type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30" maxWait="10000" url="jdbc:mysql://localhost:33306/gr1_bout_fran"
+		driverClassName="com.mysql.jdbc.Driver" username="gr1_bout_fran"
+		password="gr1_bout_fran$"
+		factory="org.apache.commons.dbcp.BasicDataSourceFactory" />
+</Context>
