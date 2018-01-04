@@ -361,6 +361,8 @@ public class CommentTraitement {
 		st.executeUpdate(query);
 		st.close();
 	}
+	
+	
 
 	public static void main(String[] args) throws UnknownHostException, MongoException, InstantiationException, IllegalAccessException, SQLException{
 

@@ -120,6 +120,25 @@ public class UserServices {
 		FriendsTraitement.removeFriend(userId, Integer.parseInt(idFriend));
 		return json;
 	}
+	
+	public static JSONObject addCommentToFavoritesService(String tweetId, String key) throws InstantiationException, IllegalAccessException, SQLException{
+		if (key == null || tweetId == null){
+			return new JSONError(12);
+		}
+		
+		if(SessionTraitement.checkSessionDate (key) == false){
+			return new JSONError(13);
+		}
+
+		SessionTraitement.refreshSession(key);
+		JSONObject json = new JSONObject() ;
+		
+		int userId = SessionTraitement.getUserIdFromKey(key);
+		
+		// to continue ..
+		return null;
+
+	}
 
 	public static JSONObject getInformations(String ids) throws JSONException, InstantiationException, IllegalAccessException, SQLException {
 
@@ -139,6 +158,8 @@ public class UserServices {
 
 		return json;
 	}
+	
+	
 
 }
 

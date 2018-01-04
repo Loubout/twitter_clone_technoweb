@@ -11,8 +11,8 @@ import com.mongodb.MongoException;
 /** Manipulation de la base MongoDB */
 
 public class MongoDBStatic {
-	private final static String url = "132.227.201.129";
-	private final static int   port = 27130;
+	private final static String url = "127.0.0.1";
+	private final static int   port = 27017;
 	private final static String  db = "gr1_bout_fran";
 
 	

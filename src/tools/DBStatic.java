@@ -9,10 +9,10 @@ import java.sql.SQLException;
 public class DBStatic {
 
 	private static boolean pooling = true;
-	private static String login    = "gr1_bout_fran";
-	private static String pwd      = "gr1_bout_fran$";
-	private static String host     = "132.227.201.129:33306";
-	private static String db       = "gr1_bout_fran";
+	private static String login    = "twitter";
+	private static String pwd      = "twitter";
+	private static String host     = "127.0.0.1:33306";
+	private static String db       = "twitter";
 	private static Database database;
 
 	

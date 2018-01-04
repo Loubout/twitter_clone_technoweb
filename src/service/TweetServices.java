@@ -1,5 +1,6 @@
 package service;
 
+
 import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -96,8 +97,6 @@ public class TweetServices {
 				// ne rechercher que les msg des amis
 				int[] friendList = FriendsTraitement.getFriends(userId); // checked ça fonctionne
 				
-		
-			
 				for (int i: friendList) /* on met tous les tweet des amis dans un tableau */
 					resultsTweets = JSONTools.concatArray(resultsTweets, CommentTraitement.findCommentsFromFriend(i));
 				// ... j'avais oublié de reaffecter le resultat à resultsTweets
