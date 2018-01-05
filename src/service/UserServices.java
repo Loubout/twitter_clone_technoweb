@@ -6,6 +6,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import error.JSONError;
+import service.exception.MissingRequiredParameterException;
+import service.exception.NonExistingSessionException;
+import service.exception.NonExistingTweetException;
+import service.exception.WrongFormatIdException;
+import service.exception.WrongFormatSessionKeyException;
+import traitement.CommentTraitement;
+import traitement.FavoriteTraitement;
 import traitement.FriendsTraitement;
 import traitement.SessionTraitement;
 import traitement.UserTraitement;
@@ -121,24 +128,6 @@ public class UserServices {
 		return json;
 	}
 	
-	public static JSONObject addCommentToFavoritesService(String tweetId, String key) throws InstantiationException, IllegalAccessException, SQLException{
-		if (key == null || tweetId == null){
-			return new JSONError(12);
-		}
-		
-		if(SessionTraitement.checkSessionDate (key) == false){
-			return new JSONError(13);
-		}
-
-		SessionTraitement.refreshSession(key);
-		JSONObject json = new JSONObject() ;
-		
-		int userId = SessionTraitement.getUserIdFromKey(key);
-		
-		// to continue ..
-		return null;
-
-	}
 
 	public static JSONObject getInformations(String ids) throws JSONException, InstantiationException, IllegalAccessException, SQLException {
 
@@ -160,6 +149,51 @@ public class UserServices {
 	}
 	
 	
+	// OCTO
+	
+	public static JSONObject addCommentToFavoritesService(String tweetId, String key) throws InstantiationException, IllegalAccessException, SQLException, MissingRequiredParameterException, NonExistingSessionException, WrongFormatSessionKeyException, WrongFormatIdException, NonExistingTweetException{
+		if (key == null || tweetId == null){
+			throw new MissingRequiredParameterException();
+		}
+		
+		if (key.length() != 32){
+			throw new WrongFormatSessionKeyException();
+		}
+	
+		if(SessionTraitement.checkSessionExists(key) == false){
+			throw new NonExistingSessionException();
+		}
+		
+		int parsedTweetId;
+		
+		try{
+			parsedTweetId = Integer.parseInt(tweetId);
+		}catch(NumberFormatException e){
+			throw new WrongFormatIdException();
+		}
+		
+		if(parsedTweetId < 0){
+			throw new WrongFormatIdException();
+		}
+		
+		if (!CommentTraitement.checkCommentExists(parsedTweetId)){
+			throw new NonExistingTweetException();
+		}
+		
+		int userId = SessionTraitement.getUserIdFromKey(key);
+		
+		FavoriteTraitement.addToFavoriteTweets(userId, parsedTweetId);
+		
+		SessionTraitement.refreshSession(key);
+		JSONObject json = new JSONObject() ;
+		
+		
+		
+		// to continue ..
+		return null;
+
+	}
+
 
 }
 

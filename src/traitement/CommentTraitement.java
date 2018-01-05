@@ -364,8 +364,10 @@ public class CommentTraitement {
 	
 	
 
-	public static void main(String[] args) throws UnknownHostException, MongoException, InstantiationException, IllegalAccessException, SQLException{
 
+	public static boolean checkCommentExists(int parsedTweetId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

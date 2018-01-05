@@ -116,5 +116,9 @@ public class SessionTraitement {
 	
 		return userId;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(generateSessionKey());
+	}
 
 }

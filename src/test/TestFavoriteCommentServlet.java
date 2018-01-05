@@ -19,7 +19,7 @@ import com.meterware.servletunit.ServletUnitClient;
 
 import servlet.*;
 
-public class TestFavoriteComment {
+public class TestFavoriteCommentServlet {
 
 	// set up ServletUnit
 	private ServletRunner sr;
